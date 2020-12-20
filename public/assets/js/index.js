@@ -103,6 +103,7 @@ const handleRenderSaveBtn = function () {
 
 // Render's the list of note titles
 const renderNoteList = (notes) => {
+    notes = JSON.parse(notes)
   $noteList.empty();
 
   const noteListItems = [];
@@ -126,7 +127,7 @@ const renderNoteList = (notes) => {
   if (notes.length === 0) {
     noteListItems.push(create$li("No saved Notes", false));
   }
-
+console.log(typeof notes)
   notes.forEach((note) => {
     const $li = create$li(note.title).data(note);
     noteListItems.push($li);
